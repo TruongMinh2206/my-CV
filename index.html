@@ -382,21 +382,25 @@
                                         <div class="bottom_30 section-title top_30"><span></span>
                                             <h2>Portfolio</h2>
                                         </div>
+                                        
+                                     
                                         <div id="filters-container">
-                                            <div data-filter="*" class="cbp-filter-item cbp-filter-item-active">All
-                                            </div>
-                                            <div data-filter=".webdesign" class="cbp-filter-item">Web Design</div>
-                                            <div data-filter=".motion" class="cbp-filter-item">Motion Graphic</div>
-                                            <div data-filter=".illustration" class="cbp-filter-item">Illustration</div>
-                                            <div data-filter=".photography" class="cbp-filter-item">Photography</div>
+                                            <ul>
+                                                <li class="cbp-filter-item-active" data-filter="*">All</li>
+                                                <li data-filter=".web-design">Web Design</li>
+                                                <li data-filter=".motion-graphic">Motion Graphic</li>
+                                                <li data-filter=".illustration">Illustration</li>
+                                                <li data-filter=".photography">Photography</li>
+                                            </ul>
                                         </div>
                                     </div>
+                                    <!-- //class="cbp-filter-item" -->
                                     <div id="grid-container"
                                         class="top_60 cbp cbp-caption-active cbp-caption-pushTop cbp-ready"
                                         style="height: 948px;">
                                         <div class="cbp-wrapper-outer">
                                             <div class="cbp-wrapper">
-                                                <div class="cbp-item webdesign"
+                                                <div class="cbp-item web-design"
                                                     style="width: 310px; left: 0px; top: 0px;">
                                                     <div class="cbp-item-wrapper"> <a href="/" class="cbp-singlePage">
                                                             <figure>
@@ -409,7 +413,7 @@
                                                             </figure>
                                                         </a> </div>
                                                 </div>
-                                                <div class="cbp-item cbp-lightbox motion"
+                                                <div class="cbp-item cbp-lightbox motion-graphic"
                                                     style="width: 310px; left: 310px; top: 0px;">
                                                     <div class="cbp-item-wrapper"> <a
                                                             href="http://www.youtube.com/watch?v=bpOSxM0rNPM&amp;rel=0&amp;autoplay=1"
@@ -438,7 +442,7 @@
                                                             </figure>
                                                         </a> </div>
                                                 </div>
-                                                <div class="cbp-item webdesign"
+                                                <div class="cbp-item web-design"
                                                     style="width: 310px; left: 0px; top: 316px;">
                                                     <div class="cbp-item-wrapper"> <a href="/" class="cbp-singlePage">
                                                             <figure>
@@ -452,7 +456,7 @@
                                                             </figure>
                                                         </a> </div>
                                                 </div>
-                                                <div class="cbp-item motion"
+                                                <div class="cbp-item motion-graphic"
                                                     style="width: 310px; left: 310px; top: 316px;">
                                                     <div class="cbp-item-wrapper"> <a href="https://vimeo.com/199074744"
                                                             class="cbp-lightbox">
@@ -466,7 +470,7 @@
                                                             </figure>
                                                         </a> </div>
                                                 </div>
-                                                <div class="cbp-item webdesign"
+                                                <div class="cbp-item web-design"
                                                     style="width: 310px; left: 620px; top: 316px;">
                                                     <div class="cbp-item-wrapper"> <a href="/" class="cbp-singlePage">
                                                             <figure>
@@ -740,25 +744,32 @@
     </script>
 
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var grid = new Isotope("#grid-container", {
-                itemSelector: ".cbp-item",
-                layoutMode: "fitRows"
-            });
-
-            document.querySelectorAll("#filters-container .cbp-filter-item").forEach(filter => {
-                filter.addEventListener("click", function () {
-                    document.querySelectorAll("#filters-container .cbp-filter-item").forEach(f => f.classList.remove("cbp-filter-item-active"));
-                    this.classList.add("cbp-filter-item-active");
-
-                    var filterValue = this.getAttribute("data-filter");
-                    grid.arrange({ filter: filterValue === "*" ? "*" : filterValue });
-                });
-            });
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Khởi tạo Isotope với container
+        var grid = new Isotope("#grid-container", {
+            itemSelector: ".cbp-item",
+            layoutMode: "fitRows"
         });
 
-    </script>
+        // Chọn tất cả các filter item
+        var filters = document.querySelectorAll("#filters-container li");
+
+        filters.forEach(filter => {
+            filter.addEventListener("click", function () {
+               
+                filters.forEach(f => f.classList.remove("cbp-filter-item-active"));
+            
+                this.classList.add("cbp-filter-item-active");
+
+              
+                var filterValue = this.getAttribute("data-filter");
+                grid.arrange({ filter: filterValue === "*" ? "*" : filterValue });
+            });
+        });
+    });
+</script>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {

@@ -129,7 +129,8 @@ ul.profile-information li:before {
     font-size: 11px;
     line-height: 29px;
 }
-header nav a.home-btn, .estate figure .imgout .price, .site-btn, .timeline li:first-child i, nav ul li a:after, .owl-theme .owl-controls .owl-page span, .skill-list .progress .percentage, ul.profile-information li:first-child:before {
+header nav a.home-btn, .estate figure .imgout .price, .site-btn, .timeline li:first-child i, nav ul li a:after, 
+.owl-theme .owl-controls .owl-page span, .skill-list .progress .percentage, ul.profile-information li:first-child:before {
     background: #ffc500 !important;
 }
 .site-btn {
@@ -289,9 +290,7 @@ a {
     display: inline-block;
     position: relative;
 }
-.site-btn:hover, header nav a.home-btn:hover, .section-title span {
-    background-color: #ffb100 !important;
-}
+
 .section-title span {
     opacity: .4;
     width: 100%;
@@ -380,6 +379,9 @@ p {
     overflow: visible;
 }
 
+.home-btn i {
+    color: #000;
+}
 
 .skill-list .progress .percentage {
     -ms-border-radius: 50px 0 0 50px;
@@ -394,6 +396,9 @@ section:last-child {
 }
 .bottom_15 {
     margin-bottom: 15px;
+}
+ol, ul {
+     padding-left: 0 !important;
 }
 .padding_60 {
     padding-top: 60px;
@@ -639,12 +644,44 @@ section.graybg {
 
 
 
-#portfolio #filters-container .cbp-filter-item {
-    color: #787878;
+ #filters-container {
+    text-align: center;
+    margin-bottom: 40px;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+}
+
+#filters-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#filters-container ul li.cbp-filter-item-active {
+    background-color: var(--primary-color);
+    color: #000;
+}
+
+#filters-container ul li {
+    display: inline-block;
+    padding: 8px 20px;
+    margin: 0 2px;
     cursor: pointer;
-    float: left;
-    margin-right: 15px;
-    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    transition: all 0.3s ease;
+    border-radius: 30px;
+}
+li {
+    list-style: none;
+}
+#filters-container ul li:hover {
+    opacity: 0.7;
+    background-color: var(--primary-color);
+    color: #000;
 }
 .cbp-wrapper-outer, .cbp-wrapper, .cbp-wrapper-helper {
     z-index: 1;
@@ -676,7 +713,7 @@ section.graybg {
     border-radius: 50px;
     border: 0 !important;
     padding: 10px 29px !important;
-    font-family: Roboto, sans-serif !important;
+   
     font-size: 14px !important;
     font-weight: 500 !important;
     line-height: 35px !important;
